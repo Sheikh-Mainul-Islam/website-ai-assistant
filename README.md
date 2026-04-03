@@ -23,7 +23,7 @@ Designed and developed by **Sheikh Mainul Islam**, this project demonstrates a c
 ## 📸 Project Previews
 
 ### The Chatbot Interface
-![Chatbot UI](ui-screenshot.png)
+![Chatbot UI](ui-Interface.png)
 
 ### The Backend Automation (n8n)
 ![n8n Workflow](n8n-workflow.png)
