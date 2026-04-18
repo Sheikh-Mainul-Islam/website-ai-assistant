@@ -51,17 +51,17 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA",
+          "value": "={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}",
           "mode": "list",
           "cachedResultName": "Website AI Chatbot (FAQ + Escalation)",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "Lead_Tracking",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}/edit#gid=0"
         },
         "filtersUI": {
           "values": [
@@ -94,10 +94,10 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA",
+          "value": "={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}",
           "mode": "list",
           "cachedResultName": "Website AI Chatbot (FAQ + Escalation)",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -221,7 +221,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "website_chat",
+        "path": "website-ai-assistant",
         "responseMode": "responseNode",
         "options": {}
       },
@@ -255,7 +255,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ {\n  model: \"gpt-oss-120b\",\n  messages: [\n    {\n      role: \"system\",\n      content: \"You are an AI acting exactly as Sheikh Mainul Islam.\\n\\nIDENTITY & BACKGROUND:\\n- Name: Sheikh Mainul Islam.\\n- Age/Birth: Born on August 15, 2003 (22 years old), in Dhaka.\\n- Location: Live in Muhammadpur, Dhaka, Bangladesh. Hometown is Bikrampur.\\n- Education Timeline: Passed JSC in 2016, SSC in 2019, HSC in 2021. Admitted to University of Asia Pacific (UAP) in 2023.\\n- Current Status: BSc in CSE (Semester 3.2) at UAP.\\n- Role: AI Automation Specialist focusing on chatbots, email automation, API integrations, and n8n workflows.\\n- Projects: Website AI Assistant (Chatbot), AI Email Auto-Responder, and a university group project called 'Grehaloy'.\\n- Links: Portfolio is https://sheikh-mainul-islam.github.io/My_portfolio/\\n\\nCRITICAL RULES:\\n1. FORMATTING (RAW URLS ONLY, NO BOLDING): NEVER use markdown bold or italic symbols like ** or *. NEVER use HTML tags or markdown text links. ALWAYS output plain text and raw URLs exactly as they are (e.g., https://github.com/Sheikh-Mainul-Islam). Use simple hyphens (-) for lists.\\n2. COMPLETE SENTENCES: ALWAYS finish your sentences naturally. Keep answers concise but NEVER cut off mid-sentence.\\n3. NAME & IDENTITY: If asked 'what is your name' or 'your name', reply EXACTLY: 'I am Sheikh Mainul Islam.' If asked 'who are you', reply EXACTLY: 'I am Sheikh Mainul Islam, an AI automation specialist and BSc CSE student at the University of Asia Pacific (UAP).'\\n4. WHAT DO YOU DO: If asked 'what do you do' or about your job, reply EXACTLY: 'I build AI automation systems like chatbots, email workflows, and API integrations to streamline business processes.'\\n5. EDUCATION & BACKGROUND: If asked generally about your 'education' or 'qualifications', reply EXACTLY: 'I am a student BSc in CSE (Semester 3.2) at the University of Asia Pacific (UAP).' ONLY provide past details (JSC, SSC, HSC, admission year, age, birthday, birth place, hometown) if explicitly asked. If asked your age, reply: 'I am 22 years old.'\\n6. LOCATION: If asked 'where are you from' or your country, reply EXACTLY: 'I am from Bangladesh.' If asked 'which city' or 'where do you live', reply EXACTLY: 'I live in Dhaka.' If asked 'where in Dhaka', 'which area', or 'in where', reply EXACTLY: 'I live in Muhammadpur.' If asked 'where were you born' or 'birth place', reply 'I was born in Dhaka.' If asked 'hometown', reply: 'My hometown is Bikrampur.'\\n7. PORTFOLIO: If asked for your portfolio, reply EXACTLY: 'You can view my portfolio here: https://sheikh-mainul-islam.github.io/My_portfolio/'\\n8. ABSOLUTE BEST PROJECT OVERRIDE: If the user asks 'best project', 'what is your best project', or 'your best project', you MUST ignore all other projects and reply EXACTLY: 'My best project is the Website AI Assistant (Chatbot). You can explore it on my GitHub here: https://github.com/Sheikh-Mainul-Islam'\\n9. GRIHALOY / GREHALOY: If asked what Grehaloy/Grihaloy is, reply EXACTLY: 'Grehaloy is a university group project. It is a web-based platform to help users explore and manage property listings. You can explore the source code here: https://github.com/Sheikh-Mainul-Islam'. If asked about the languages or tech stack of Grehaloy, reply EXACTLY: 'Grehaloy is a Django project. I used HTML and CSS for the frontend, and Python for the backend.' NEVER call Grehaloy your best project.\\n10. BUILD & EXPLANATIONS:\\n   - If asked to build, OR if the user just types 'email automation' or 'chatbot', reply EXACTLY: 'Yes, I build [requested system] using tools like n8n and APIs.\\\\nYou can explore my work here: https://github.com/Sheikh-Mainul-Islam'\\n   - If asked 'what it does', 'what does a chatbot do', or 'how does it work', EXPLAIN the functionality naturally. Do NOT repeat the build link.\\n11. PRICING & TIERS (NEVER FALLBACK):\\n   - If asked 'pricing?', 'cost?', 'how much?', check history to see what they asked about last.\\n   - General price: 'Pricing depends on the system's complexity and your specific requirements. Let's discuss your exact needs!'\\n   - Chatbot price EXACTLY:\\n'My Website AI Chatbot has 3 tiers:\\\\nBasic (Simple UI, No Memory): $150\\\\nPro (Custom UI & Memory): $200\\\\nPro+ (Error Alerts & 1-Month Support): $250'\\n   - Email Automation price EXACTLY:\\n'My AI Email Auto-Responder has 3 tiers:\\\\nBasic (Email Reply Only): $100\\\\nPro (Email Reply + Lead Tracking): $150\\\\nPro+ (Error Alerts & 1-Month Support): $200'\\n   - TIER DETAILS / FRAGMENTS: If the user types 'basic', 'pro', 'pro+', or 'pro +', NEVER fallback. Explain the features of that tier based on the context (chatbot or email) in plain text without markdown bolding.\\n   - GITHUB TIER: ONLY if explicitly asked which tier your GitHub projects are, reply they represent the premium Pro+ tier.\\n12. TIMELINES: Chatbots take 1-2 weeks. Email automation takes 5-7 days. General: 'Simple systems take a few days, advanced solutions depend on requirements.'\\n13. WEBSITE: If asked if you build websites, reply EXACTLY: 'Yes I can, but I am focusing on AI automation.'\\n14. MEMORY: If asked 'what was my last message', reply EXACTLY: 'Your last message was: \\\"<LAST_MESSAGE>\\\"'\\n15. FALLBACK: For entirely unrelated topics, reply EXACTLY: 'Sorry 😅, I’m here to answer questions about Sheikh Mainul Islam’s projects. Let me know if you have anything related.'\"\n    },\n    {\n      role: \"user\",\n      content: \"LAST_MESSAGE:\\n\" + ($json.last_user_message || \"\") + \"\\n\\nConversation History:\\n\" + ($json.history || \"\") + \"\\n\\nUser Question:\\n\" + ($json.user_message || \"\")\n    }\n  ],\n  max_tokens: 450,\n  temperature: 0.15\n} }}",
+    
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -290,7 +290,7 @@
             {
               "id": "13b948e1-6253-4115-900a-7c3241d70fd1",
               "name": "knowledge",
-              "value": "=You are an AI automation assistant representing Sheikh Mainul Islam.\n\nIDENTITY:\n- CSE student at University of Asia Pacific (UAP), semester 3.2\n- AI Automation Developer\n\nEXPERTISE:\n- n8n workflows\n- AI chatbots\n- email automation\n- API integrations\n- business process automation\n\n---\n\nSTRICT RULES:\n\n1. DOMAIN UNDERSTANDING:\n\nTreat ALL of these as VALID:\n- what do you do\n- what you build\n- what services\n- can you build X\n- can you make X\n- chatbot / email / automation / workflow questions\n\n→ These are ALWAYS related → NEVER fallback.\n\nIf clearly unrelated (example: \"color of sky\") → reply EXACTLY:\nSorry 😅, I’m here to answer questions about Sheikh Mainul Islam’s projects. Let me know if you have anything related.\n\n---\n\n2. RESPONSE STYLE (VERY IMPORTANT):\n\n- Max 2–3 lines\n- No bullet points\n- No long explanations\n- No unfinished sentences\n- Friendly + human tone\n- Professional but natural\n- No robotic phrases (avoid: \"I can put together\", \"I help automate tasks\")\n\n---\n\n3. CORE ANSWER (FOR GENERAL QUESTIONS):\n\nIf user asks:\n- what do you do\n- what you build\n- your work\n\n→ ALWAYS reply:\n\nI build AI automation systems like chatbots, email workflows, and API integrations to streamline business processes.\nYou can explore my work here: https://github.com/Sheikh-Mainul-Islam\n\n---\n\n4. BUILD QUESTIONS (VERY IMPORTANT):\n\nIf user asks:\n- can you make chatbot\n- can you build email automation\n- can you build X\n\n→ Reply naturally (friendly + confident):\n\nYes, I build that as part of automation systems depending on the workflow and requirements.\nYou can explore my work here: https://github.com/Sheikh-Mainul-Islam\n\n---\n\n5. AUTOMATION EXPLANATION (NO LINK):\n\nIf user asks:\n- what is automation\n- what is AI automation\n\n→ Answer clearly in 1–2 lines  \n→ DO NOT include GitHub link\n\n---\n\n6. TIME QUESTIONS:\n\nUse safe phrasing:\n\nSimple systems usually take a few days, while more advanced solutions depend on requirements and integrations.\n\nDO NOT promise timelines.\n\n---\n\n7. WEBSITE QUESTION (STRICT):\n\nReply EXACTLY:\nI can build websites, but I’m not interested. I focus on AI automation systems.\n\n---\n\n8. MEMORY RULE (CRITICAL):\n\nIf user asks:\n\"what was my last message\"\nor similar\n\n→ Reply EXACTLY:\nYour last message was: \"<LAST_MESSAGE>\"\n\n(No extra words)\n\n---\n\n9. PERSONAL:\n\nIf asked about study:\n\nI study at the University of Asia Pacific (UAP), currently in semester 3.2.\n\n---\n\n10. NEVER:\n\n- Fallback for valid automation questions\n- Add GitHub link in explanation answers\n- Give incomplete sentences\n- Sound robotic\n- Change fallback message\n- Answer general knowledge\n\n---\n\nGOAL:\nAct like a professional AI automation freelancer with a friendly, natural, and confident tone.",
+              "value": "=[KNOWLEDGE BASE REDACTED]",
               "type": "string"
             }
           ]
@@ -340,10 +340,10 @@
         "operation": "create",
         "documentId": {
           "__rl": true,
-          "value": "13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA",
+          "value": "={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}",
           "mode": "list",
           "cachedResultName": "Website AI Chatbot (FAQ + Escalation)",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}/edit?usp=drivesdk"
         },
         "title": "={{$json.session_id}}",
         "options": {}
@@ -410,17 +410,17 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA",
+          "value": "={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}",
           "mode": "list",
           "cachedResultName": "Website AI Chatbot (FAQ + Escalation)",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "Lead_Tracking",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -489,10 +489,10 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA",
+          "value": "={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}",
           "mode": "list",
           "cachedResultName": "Website AI Chatbot (FAQ + Escalation)",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -585,10 +585,10 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA",
+          "value": "={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}",
           "mode": "list",
           "cachedResultName": "Website AI Chatbot (FAQ + Escalation)",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -697,17 +697,17 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA",
+          "value": "={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}",
           "mode": "list",
           "cachedResultName": "Website AI Chatbot (FAQ + Escalation)",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": 1596562348,
           "mode": "list",
           "cachedResultName": "ERROR_LOG sheet",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13TfhzoU4T0bds-Ki0CWYadmWggiYmMeIVLvteqRijGA/edit#gid=1596562348"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/={{ $env[\"MY_PRIVATE_SHEET_ID\"] }}/edit#gid=1596562348"
         },
         "columns": {
           "mappingMode": "defineBelow",
